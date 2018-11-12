@@ -1,0 +1,33 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<h3>正在跳转 ... </h3>
+</body>
+<script id="doDepositTpl"  type="text/x-dot-template">
+  <form id="doDepositForm" method="post" action="{{=it.recharge_url }}">
+    {{ for(var key in it.input_data){ }}
+    <input type="hidden" name="{{=key}}" value="{{=it.input_data[key]}}" />
+    {{  } }}
+    {{?typeof(it.depositUrl)!='undefined'}}
+    <input type="hidden" name="___DepositUrl" value="{{=it.depositUrl}}" />
+    {{?}}
+  </form>
+</script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/doT.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript">
+  var NBRecharge = JSON.parse($.cookie('NBRecharge'));
+  doTrender({
+    container: 'body',
+    tmplObj: '#doDepositTpl',
+    data: NBRecharge,
+    needClear: false,
+    prependDom: false
+  });
+  $("#doDepositForm").get(0).submit();
+</script>
+</html>

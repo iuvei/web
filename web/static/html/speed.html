@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>魔方游戏--测速</title>
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="css/speed.css" rel="stylesheet" type="text/css" />
+    <link href="css/xcConfirm.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="main">
+  <a class="logo"></a>
+  <div class="section section1">
+    <div class="banner"><img src="images/speed/banner.png"></div>
+    <div class="introduction">
+      <h2>魔方测速中心</h2>
+      <h3>MOFANG Speed Test Center</h3>
+      <h4>官方地址不能登录？</h4>
+      <p>
+        1.打开IE浏览器：选择：工具->Internet选项->再选择（删除历史 浏览记录）->删除->重启IE 。<br>
+        2.访问本站域名出现跳转到其他网址的情况：这是您当地电信运营商dns被劫持所导致的，您可以通过修改电脑本地dns来解决。具体操作请点击查看首页防劫持教程
+      </p>
+      <a href="javascript:;" id="start">为了提高您的游戏顺畅，您可以选择下方优质的线路进行访问。</a>
+    </div>
+  </div>
+
+  <div class="section section2">
+    <ul id="main"></ul>
+    <button class="head-btn" id="submit" value="">重新测速</button>
+  </div>
+  <div class="section section3">
+    <h2>魔方游戏域名验证</h2>
+    <h3>为防止虚假仿冒网站，请在下方进行域名认证</h3>
+    <input id="domain-input" class="input" placeholder="输入域名......">
+    <a class="btn-check" id="do-check" href="javascript:;">立即验证</a>
+  </div>
+</div>
+<div id="img" style="display: none"></div>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/zcircleMove.js"></script>
+<script type="text/javascript" src="js/xcConfirm.js"></script>
+<script>
+
+
+
+</script>
+
+
+<script type="text/javascript">
+  var time = 1, num = 1;
+  setInterval("time++", 100);
+
+
+  var autourl = new Array();
+  var autourl2 = new Array();
+  autourl.push('0')
+  autourl2.push('0')
+
+
+  function initHtml() {
+    var html = "";
+    for (var i = 1; i < autourl.length; i++) {
+      html += '<li id="url' + i + '">'+
+        '<div class="canvas-wrap">'+
+        '<canvas class="canvas" data-run="1"></canvas>'+
+        '<dl>'+
+        '<dt>---线路'+i+'---</dt>'+
+        '<dt class="speed-result">-ms</dt>'+
+        '<dt>毫秒</dt>'+
+        '</dl>'+
+        '</div>'+
+        '<a href="'+autourl[i]+'" >立马访问</a>'+
+        '</li>';
+    }
+    $("#main").append(html);
+  }
+
+
+
+  $("#submit").click(function () {
+    run()
+  });
+
+
+  function setPercentAndColor(index) {
+    var elem = '#url' + index + ' ';
+    var xArray = $(elem + ".canvas"),
+      xSpeed = $(elem + '.speed-result')
+    /**
+     * time 连接时间（100ms）
+     * <10 -- 推荐，极好
+     * <50 -- 良好
+     * >50 <100 -- 较差
+     * >100 -- 链接超时
+     *
+     * */
+    if (time > 50) {
+      xArray.attr('data-run', 1);
+    } else {
+
+      var perc = time / 100;
+        xArray.attr("data-run", perc);
+      if (time <= 10) {
+        xArray.attr("data-run", 0.2);
+      } else if (time > 10 && time <= 30) {
+        xArray.attr("data-run", 0.3);
+      } else if (time > 30 && time <= 50) {
+        xArray.attr("data-run", 0.4);
+      }
+      xSpeed.text(time + "ms");
+    }
+
+    $('.canvas').eq(Number(index)-1).each(function(){
+      runCircle({
+        obj:$(this).get(0),
+        percent: $(this).data('run')
+      })
+    })
+
+  };
+
+
+
+  function run() {
+    for (var i = 1; i < autourl.length; i++) {
+      var imgHtml = "<img src=" + autourl[i] + "/" + Math.random() + " width=1 height=1 onerror=setPercentAndColor(" + i + ")>";
+      $("#img").append(imgHtml);
+    }
+  }
+
+
+
+  $('#do-check').click(function(){
+    var input = $('#domain-input')
+    var  val = input.val().trim().replace('https://','').replace('http://','')
+      if(autourl.length>0){
+        var result = checkFunction(val)
+        if(result){
+          var txt=  "恭喜您，验证成功！";
+          window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.success);
+        }else{
+          var txt=  "警告！您输入的网址不是官方网址！";
+          window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.error);
+        }
+      }else{
+        alert('获取官方域名列表失败')
+      }
+  })
+
+  function checkFunction(str){
+    var find = false
+    var list = []
+    if(str.indexOf('www.')>-1){
+      list = autourl
+    }else{
+      list = autourl2
+    }
+    for(var i=0;i<list.length;i++){
+      var correct = list[i].replace('https://','').replace('//','')
+      if(str == correct){
+        find = true
+        break;
+      }
+    }
+    return find
+  }
+
+
+  $(function(){
+    $.get("/service?action=getDomain&terminal_id=1",function(data,status){
+      if(data.errno == 0){
+        var data =data.data
+        for(var i=0;i<data.length;i++){
+          if(data[i].domain.indexOf('http://')>-1||data[i].domain.indexOf('https://')>-1){
+            autourl.push(data[i].domain)
+            autourl2.push(data[i].domain.replace('http://','').replace('https://','').replace('www.',''))
+          }else{
+            autourl.push('//'+data[i].domain)
+            autourl2.push(data[i].domain.replace('www.',''))
+          }
+        }
+        initHtml();
+        run()
+        $('#start').click(function(){
+          $(window).scrollTop(700)
+          run()
+        })
+      }
+
+    });
+
+  })
+
+
+</script>
+</body>
+</html>

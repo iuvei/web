@@ -1,0 +1,441 @@
+@charset "utf-8";
+body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-style: normal;
+  text-decoration: none;
+  border: none;
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-font-smoothing: antialiased;
+  &:hover{
+    outline: none;
+  }
+}
+img {
+  border: 0;
+}
+@import "variables.scss";
+@import "icon.scss";
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+  width: 5px;
+  height: 10px;
+  background-color: #F5F5F5;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #555;
+}
+
+input[type="button"], input[type="submit"], input[type="search"], input[type="reset"] {
+  -webkit-appearance: none;
+}
+
+textarea { -webkit-appearance: none;}
+
+html,body{
+  background-color: $bg-color;
+  color: $font-color;
+  overflow-x: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
+}
+table > tbody,
+.can-select{
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+}
+.can-select {
+  padding-right: 20px;
+}
+a{
+  color: $font-color;
+  cursor: pointer;
+}
+a:hover{
+  color: $a-hover-color;
+}
+.clear:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.clear{
+  zoom:1;
+}
+
+.container {
+  @extend .clear;
+  width: $middle-width;
+  margin: 0 auto;
+}
+
+.margin{
+  margin: 0 auto;
+}
+
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.hide{
+  display: none;
+}
+
+.show{
+  display: block;
+}
+
+.ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.color-red {
+  color: #c90000;
+}
+.color-green {
+  color: #278617;
+}
+.color-pink {
+  color: #ff7069;
+}
+.color-blue{
+  color: #19abc0;
+}
+.text-center {
+  text-align: center;
+}
+//用户-公用-菜单链接
+.imgLink-list {
+  overflow: hidden;
+  padding-top: 20px;
+  li {
+    float: left;
+    margin: 0 18px;
+    text-align: center;
+    a {
+      width: 100%;
+      height: 100%;
+      display: block;
+      text-align: center;
+    }
+    .link-img{
+      width: 54px;
+      height: 54px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    $list: recharge,withdraw,transfer,safeCenter,message;
+    $list2: agent,teamReport,teamManagement,accountChange,promotion,domain;
+    $list3: personalReport,fundingDetails,gameRecord,traceRecord;
+    @each $item in $list {
+      .#{$item} {
+        background-position:-((index($list,$item)-1)*54px) 0;
+      }
+    }
+    @each $item in $list2 {
+      .#{$item} {
+        background-position:-((index($list2,$item)-1)*54px) 108px;
+      }
+    }
+    @each $item in $list3 {
+      .#{$item} {
+        background-position:-((index($list3,$item)-1)*54px) 54px;
+      }
+    }
+    b {
+      line-height: 28px;
+    }
+  }
+}
+
+//公用按钮
+.g-btn {
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  @include linear-gradient(to right,#0caddf,#2dd4c7);
+  &:hover{
+    color: #fff;
+  }
+}
+
+
+//覆盖组件样式
+.el-tabs__item {
+  line-height: 74px;
+  height: 74px;
+  font-size: 16px;
+  &.is-active{
+    color: #212121;
+  }
+  &:hover{
+    color: #212121;
+  }
+
+}
+.el-tabs__active-bar{
+  background-color: #19abc0;
+  height: 3px;
+}
+
+.el-form-item__label {
+  color: #000;
+  font-size: 16px;
+}
+.el-form-item__content {
+  font-size: 16px;
+}
+
+.el-input.is-disabled .el-input__inner,
+.el-textarea.is-disabled .el-textarea__inner{
+  background-color: #eef2f9;
+  color: #414142;
+}
+.el-radio {
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.el-radio+.el-radio {
+  margin-left: 0;
+}
+.el-radio__label {
+  padding-left: 5px;
+}
+//银行图标
+
+/* ico-bank */
+
+
+.ABC {background-position: 0 0;}
+.BCCB,.BJBANK {background-position: 0 -36px;}
+.BOC {background-position: 0 -72px;}
+.BSB {background-position: 0 -108px;}
+.CCB {background-position: 0 -144px;}
+.CEBB,.CEB {background-position: 0 -180px;}
+.ECITIC,.CITIC {background-position: 0 -216px;}
+.CMB {background-position: 0 -252px;}
+.CMBC {background-position: 0 -288px;}
+.BCOM,.COMM {background-position: 0 -324px;}
+.EGBANK {background-position: 0 -360px;}
+.FJHXBC {background-position: 0 -396px;}
+.GDB {background-position: 0 -432px;}
+.HXB,.HXBANK {background-position: 0 -468px;}
+.HZCB {background-position: 0 -504px;}
+.ICBC {background-position: 0 -539px;}
+.JHBANK {background-position: 0 -576px;}
+.JSBANK {background-position: 0 -612px;}
+.JXBANK {background-position: 0 -648px;}
+.NBBANK {background-position: 0 -684px;}
+.NBYZ {background-position: 0 -720px;}
+.PSBC {background-position: 0 -756px;}
+.SDB {background-position: 0 -792px;}
+.BOS,.SHBANK {background-position: 0 -828px;}
+.PAB,.SPABANK {background-position: 0 -864px;}
+.SPDB {background-position: 0 -900px;}
+.SXCB {background-position: 0 -936px;}
+.WZCB {background-position: 0 -972px;}
+.ZJNX {background-position: 0 -1008px;}
+.CIB {background-position: 0 -1044px;}
+.ZFB,.ALIPAY{background-position: 0 -1080px;}
+.TENPAY{background-position: 0 -1116px;}
+.YEEPAY{background-position: 0 -1152px;}
+.SPAY{background-position: 0 -1188px;}
+.UPY{background-position: 0 -1224px;}
+.BJRCB {
+  background-position: 0 -1253px;
+}
+.SHRCB {
+  background-position: 0 -1289px;
+}
+.HCCB {
+  background-position: 0 -1325px;
+}
+.GZCB {
+  background-position: 0 -1361px;
+}
+
+
+/*loading start*/
+.loading {
+  z-index: 999999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.loading .loadbg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #000;
+  opacity: 0.3;
+}
+
+.loading .loading-container {
+  width: 220px;
+  height: 220px;
+  opacity: 0.8;
+  margin-top: -110px;
+  margin-left: -110px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: rgba(0,0,0,.5);
+  border-radius: 5px;
+  padding-top: 60px;
+  color: #fff;
+  text-align: center;
+}
+.sk-cube-grid {
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: #fff;
+
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  } 35% {
+      -webkit-transform: scale3D(0, 0, 1);
+      transform: scale3D(0, 0, 1);
+    }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  } 35% {
+      -webkit-transform: scale3D(0, 0, 1);
+      transform: scale3D(0, 0, 1);
+    }
+}
+
+
+
+#nprogress .bar {
+  z-index: 1999;
+  height: 3px;
+}
+
+#app {
+  min-width: 1400px;
+}
+
+@media screen and (max-width: 1366px) {
+  #app,.clear{
+    zoom: 97%;
+  }
+  .banner {
+    height: 600px;
+  }
+  .ISMOBILE#app,.ISMOBILE .clear {
+    zoom: 100%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  #app,
+  .clear,
+  .el-tooltip__popper{
+    zoom: 91%;
+  }
+
+  .ISMOBILE#app,.ISMOBILE .clear,
+  .ISMOBILE .el-tooltip__popper{
+    zoom: 100%;
+  }
+}
+
+.ISMOBILE#app {
+  min-width: auto;
+}
+.el-message-box__wrapper .el-message-box {
+  width: 350px;
+}

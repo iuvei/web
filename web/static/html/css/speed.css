@@ -1,0 +1,211 @@
+body {
+  background: url(../images/speed/bg.jpg) no-repeat center top;
+}
+.main {
+  width: 1400px;
+  margin: 0 auto;
+  padding-top: 104px;
+  background: url(../images/speed/bg.jpg) no-repeat center top;
+}
+.logo {
+  background: url(../images/speed/speed-logo.png) no-repeat;
+  width: 250px;
+  height: 79px;
+  display: block;
+  margin: 0 auto;
+}
+.section {
+  box-shadow: 0 10px 20px rgba(171,74,74,.2);
+  background-color: #fff;
+  margin-bottom: 30px;
+  padding: 60px 30px;
+}
+
+.section1 {
+  padding: 0;
+  text-align: center;
+  background: url(../images/speed/section1.png) no-repeat;
+  height: 635px;
+  margin-top: 104px;
+}
+.banner {
+  width: 699px;
+  text-align: center;
+  float: left;
+}
+.banner img {
+  display: inline-block;
+}
+.introduction {
+  width: 611px;
+  float:right;
+  padding: 0 44px;
+}
+
+.section1 h2 {
+  font-size: 48px;
+  line-height: 48px;
+  padding-bottom: 20px;
+  color: #704248;
+}
+.section1 h3 {
+  font-size: 18px;
+  line-height: 18px;
+  color: #ff667b;
+  padding-bottom:74px;
+}
+.section1 h4 {
+  font-size: 24px;
+  line-height: 24px;
+  color: #19aac0;
+  position: relative;
+  text-align: center;
+  font-weight:normal;
+}
+.section1 h4:before,
+.section1 h4:after {
+  content: '';
+  width: 180px;
+  height: 1px;
+  border-bottom: 2px dashed #727272;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+.section1 h4:after {
+  left: auto;
+  right: 0;
+  font-weight:normal;
+}
+.section1 p {
+  font-size: 16px;
+  line-height: 50px;
+  text-align: left;
+}
+.introduction a {
+  padding: 36px 30px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 18px;
+  background: #0e9cff;
+  display: inline-block;
+  margin-top: 90px;
+  text-decoration: none;
+}
+.section2 {
+  position: relative;
+}
+.section2 .head-btn {
+  background: red;
+  color: #fff;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  outline: none;
+}
+.section2  ul {
+  text-align: center;
+}
+.section2  ul li {
+  width: 200px;
+  height: 280px;
+  display: inline-block;
+}
+.section2  ul li .canvas-wrap {
+  height: 190px;
+  width: 190px;
+  position: relative;
+}
+.canvas-wrap .canvas {
+  width: 190px;
+  height: 190px;
+}
+.canvas-wrap dl {
+  position: absolute;
+  width: 170px;
+  text-align: center;
+  left: 10px;
+  top: 50px;
+}
+.canvas-wrap dl .speed-result{
+  font-size: 30px;
+}
+.section2  ul li a{
+  display: inline-block;
+  padding: 15px 44px;
+  background: #ff7979;
+  font-size: 15px;
+  line-height: 15px;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(255,158,161,.6);
+}
+.section2  ul li a:hover {
+  background: #ff8d9e;
+}
+
+.section3 {
+  background: url(../images/speed/section3.png) no-repeat;
+  height: 476px;
+  position: relative;
+  text-align: center;
+}
+.section3 h2 {
+  font-size: 48px;
+  line-height: 48px;
+  color: #704248;
+  padding-bottom: 64px;
+}
+.section3 h3 {
+  color: #ff667b;
+  font-size: 24px;
+  position: relative;
+  display: inline-block;
+  width: 934px;
+}
+.section3 h3:before,
+.section3 h3:after {
+  content: '';
+  width: 210px;
+  height: 1px;
+  border-bottom: 2px dashed #ff667b;
+  position: absolute;
+  top: 14px;
+  left: 0;
+}
+.section3 h3:after{
+  right: 0;
+  left: auto;
+}
+.section3 .input{
+  position: absolute;
+  top: 264px;
+  height: 54px;
+  line-height: 54px;
+  width: 855px;
+  left: 275px;
+  border: 0;
+  outline: 0;
+  background: none;
+  font-size: 16px;
+}
+.section3 .btn-check {
+  background: #3183d6;
+  color: #fff;
+  font-size: 24px;
+  line-height: 24px;
+  padding: 20px 60px;
+  border-radius: 40px;
+  position: absolute;
+  left: 50%;
+  margin-left: -118px;
+  top: 360px;
+}
+.section3 .btn-check:hover {
+  background: #236bd6;
+}

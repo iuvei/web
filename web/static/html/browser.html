@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>魔方游戏</title>
+    <style>
+      *{ padding: 0; margin: 0;}
+      body{
+        text-align: center;
+      }
+      p {
+        padding: 10px 0;
+        line-height: 40px;
+      }
+      .browser{
+        width: 460px;
+        margin: 0 auto;
+      }
+      ul {
+        padding: 20px 0;
+        text-align: center;
+        letter-spacing: 20px;
+      }
+      li {
+        display: inline-block;
+        *display: inline;
+      }
+      a {
+        width: 55px;
+        height: 55px;
+        display: block;
+        background-repeat: no-repeat;
+      }
+      .chrome{
+         background-image: url(images/browser/chrome.png);
+       }
+      .sogou{
+         background-image: url(images/browser/sogou.png);
+       }
+      .ie{
+         background-image: url(images/browser/ie.png);
+       }
+      .firefox{
+         background-image: url(images/browser/firefox.png);
+       }
+      h3 {
+        text-align: center;
+        position: relative;
+      }
+      span{
+        padding: 0 5px;
+        font-size: 18px;
+        display: inline-block;
+        z-index: 2;
+        position: relative;
+      }
+
+    </style>
+</head>
+<body>
+<div class="">
+  <p><img src="images/speed/speed-logo.png"></p>
+  <p>尊敬的用户，系统检测到您在使用IE9版本以下的浏览器，为了提高您的访问安全和用户体验，请下载这些浏览器</p>
+
+  <div class="browser">
+    <ul>
+      <li><a class="chrome" target="_blank" href="https://www.google.cn/chrome/"></a></li>
+      <li><a class="firefox" target="_blank" href="http://www.firefox.com.cn/"></a></li>
+      <li><a class="sogou" target="_blank" href="https://ie.sogou.com/"></a></li>
+      <li><a class="ie" target="_blank" href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads"></a></li>
+    </ul>
+    <h3><span>推荐浏览器</span></h3>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('icomoon.eot?sxc7jy');
+  src:  url('icomoon.eot?sxc7jy#iefix') format('embedded-opentype'),
+  url('icomoon.ttf?sxc7jy') format('truetype'),
+  url('icomoon.woff?sxc7jy') format('woff'),
+  url('icomoon.svg?sxc7jy#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: middle;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-password-box:before {
+  content: "\e941";
+}
+.icon-atm-machine:before {
+  content: "\e900";
+}
+.icon-audio:before {
+  content: "\e901";
+}
+.icon-casino-manager:before {
+  content: "\e904";
+}
+.icon-chess:before {
+  content: "\e905";
+}
+.icon-credit-card:before {
+  content: "\e906";
+}
+.icon-credit-card1:before {
+  content: "\e908";
+}
+.icon-customer-service:before {
+  content: "\e909";
+}
+.icon-diamond:before {
+  content: "\e90a";
+}
+.icon-dice:before {
+  content: "\e90b";
+}
+.icon-diploma:before {
+  content: "\e90c";
+}
+.icon-electricity:before {
+  content: "\e90d";
+}
+.icon-elegant-lady:before {
+  content: "\e910";
+}
+.icon-envelope:before {
+  content: "\e911";
+}
+.icon-exit:before {
+  content: "\e913";
+}
+.icon-finger-touching:before {
+  content: "\e914";
+}
+.icon-fire:before {
+  content: "\e917";
+}
+.icon-house-outline:before {
+  content: "\e918";
+}
+.icon-id-card:before {
+  content: "\e919";
+}
+.icon-key:before {
+  content: "\e91b";
+}
+.icon-manager:before {
+  content: "\e91e";
+}
+.icon-marketing:before {
+  content: "\e91f";
+}
+.icon-money-bag:before {
+  content: "\e920";
+}
+.icon-money:before {
+  content: "\e922";
+}
+.icon-monitor:before {
+  content: "\e923";
+}
+.icon-poker-table:before {
+  content: "\e924";
+}
+.icon-purse:before {
+  content: "\e925";
+}
+.icon-question-mark:before {
+  content: "\e926";
+}
+.icon-roulette:before {
+  content: "\e928";
+}
+.icon-safe:before {
+  content: "\e929";
+}
+.icon-scan:before {
+  content: "\e92c";
+}
+.icon-settings:before {
+  content: "\e92d";
+}
+.icon-shield:before {
+  content: "\e92e";
+}
+.icon-shield2:before {
+  content: "\e930";
+}
+.icon-shopping-online:before {
+  content: "\e932";
+}
+.icon-slot:before {
+  content: "\e935";
+}
+.icon-smartphone:before {
+  content: "\e936";
+}
+.icon-smartphone1:before {
+  content: "\e939";
+}
+.icon-speaker:before {
+  content: "\e93a";
+}
+.icon-thumb-up:before {
+  content: "\e93d";
+}
+.icon-two-billiards-balls:before {
+  content: "\e93e";
+}
+.icon-weight-balance:before {
+  content: "\e93f";
+}
+.icon-coins:before {
+  content: "\e902";
+}
+.icon-credit-card2:before {
+  content: "\e903";
+}
+.icon-three-cards:before {
+  content: "\e907";
+}
+.icon-trophy:before {
+  content: "\e90e";
+}
+.icon-gift:before {
+  content: "\e90f";
+}
+.icon-gift-card:before {
+  content: "\e912";
+}
